@@ -23,7 +23,7 @@ export default class PostImageShow extends Component {
                     minimumZoomScale={0.5}
                     maximumZoomScale={3}
                     androidScaleType="center"
-                    onLoad={() => console.log("Image loaded!")}
+                    //onLoad={() => console.log("Image loaded!")}
                     style={styles.postShowImageModal}
                 />
             </View>

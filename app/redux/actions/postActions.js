@@ -64,12 +64,13 @@ let postActions = {
 
                     if (xhr.status === 200) {
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message + 'Post saved successfully .. thank u');
+                        Alert.alert('System Message', json.message);
                         dispatch(postActions.postFetch());
                         Actions.Home();
                     } else {
+                        console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
+                        Alert.alert('System Message', json.error);
                     }
                 };
 
@@ -111,13 +112,13 @@ let postActions = {
 
                     if (xhr.status === 200) {
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message + 'Post saved successfully .. thank u');
+                        Alert.alert('System Message', json.message);
                         dispatch(postActions.postFetch());
                         Actions.Home();
                     } else {
-                        //console.log(xhr.responseText)
+                        console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
+                        Alert.alert('System Message', json.error);
                     }
                 };
 
@@ -155,9 +156,9 @@ let postActions = {
                         dispatch(postActions.postFetch());
                         Actions.Home();
                     } else {
-                        //console.log(xhr.responseText)
+                        console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
+                        Alert.alert('System Message', json.error);
                     }
                 };
 

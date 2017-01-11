@@ -15,8 +15,8 @@ export const initialState = {
 
 export const accept = 'application/json';
 export const content = 'application/json';
-export const appRoute = 'http://ideas.app/';
-//export const appRoute = 'http://api.ideasowners.net/';
+//export const appRoute = 'http://ideas.app/';
+export const appRoute = 'http://api.ideasowners.net/';
 export const apiRoute =  appRoute + 'api/';
 export const imagesRoute =  appRoute + 'storage/uploads/images/';
 export const mediumImageRoute = imagesRoute + 'medium/';
