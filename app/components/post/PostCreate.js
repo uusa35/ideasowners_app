@@ -11,7 +11,7 @@ import { Actions } from 'react-native-router-flux';
 import AppFooter from '../partials/AppFooter';
 import { apiRoute } from '../../appConstants';
 import ImagePicker from 'react-native-image-picker';
-import { isRequired , isEmail } from '../../helpers/validate';
+import { isRequired } from '../../helpers/validate';
 
 export default class PostCreate extends Component {
 

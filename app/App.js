@@ -14,7 +14,7 @@ import PostItem from '../app/components/post/PostItem';
 import AppFooter from '../app/components/partials/AppFooter'
 import * as cons from './appConstants';
 import theme from '../Themes/theme';
-import { getAuthToken } from '../app/AppStorage';
+import { getAuthToken } from '../app/helpers/auth';
 
 class App extends Component {
     static propTypes = {

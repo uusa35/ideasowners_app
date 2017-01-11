@@ -2,8 +2,7 @@ import React from 'react';
 import { Alert } from 'react-native';
 import * as cons from '../../appConstants';
 import propertiesActions from '../../redux/actions/propertiesActions';
-import { getAuthToken } from '../../AppStorage';
-//import { isRequired , isEmail } from '../../helpers/validate';
+import { getAuthToken } from '../../helpers/auth';
 import { Actions } from 'react-native-router-flux'
 
 let postActions = {

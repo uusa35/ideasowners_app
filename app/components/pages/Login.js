@@ -5,7 +5,6 @@ import { Container , Content  , Header , Footer , View,  List , ListItem , Input
 import { Actions } from 'react-native-router-flux';
 import styles from '../../assets/styles/styles'
 import { apiRoute , accept } from '../../appConstants';
-
 import AppFooter from '../../components/partials/AppFooter';
 import AppHeader from '../../components/partials/AppHeader';
 

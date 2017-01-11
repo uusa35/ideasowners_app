@@ -2,7 +2,7 @@ import * as cons from '../../appConstants';
 import React from 'react';
 import { Alert , AsyncStorage , NetInfo } from 'react-native'
 import { Actions } from 'react-native-router-flux';
-import { setAuthToken } from '../../AppStorage';
+import { setAuthToken } from '../../helpers/auth';
 import { checkInternetConnection } from '../../helpers/connection'
 
 let propertiesActions = {
