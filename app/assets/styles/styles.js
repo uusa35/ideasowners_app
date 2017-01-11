@@ -28,12 +28,35 @@ let styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold'
     },
-    btnDate: {
+    postItemControl : {
         flex: 1,
-        width: width,
         flexDirection: 'row',
+        paddingRight: 25,
+        width: width,
         justifyContent: 'flex-end',
-        paddingRight: 20
+        alignItems: 'center',
+
+    },
+    postShowControl: {
+        flex: 1,
+        flexDirection: 'row-reverse',
+        padding: 20,
+        paddingTop: 5,
+        width: width,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+    },
+    postShowSubControl: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
+    btnDate: {
+        width: width / 3
+    },
+    btnEdit: {
+        borderRadius: 8,
+        marginRight: 25,
     },
     cardMain: {
         flex: 1,
@@ -104,16 +127,22 @@ let styles = StyleSheet.create({
         height: height / 2 + 100,
         width: width
     },
+    postShowTitle: {
+        textAlign: 'center',
+        fontSize: 20,
+        fontWeight: 'bold',
+        padding: 7
+    },
     postShowImage: {
         resizeMode: 'cover',
         width: width,
         height: height / 2 + 100
     },
     PostImageShowModalcontainer: {
-        flex : 1,
+        flex: 1,
         flexDirection: 'column',
         justifyContent: 'space-around',
-        alignItems : 'flex-end',
+        alignItems: 'flex-end',
         backgroundColor: 'black',
     },
     postShowImageModal: {
@@ -122,7 +151,7 @@ let styles = StyleSheet.create({
         resizeMode: 'contain'
     },
     postShowBtnModal: {
-        alignSelf : 'flex-end',
+        alignSelf: 'flex-end',
         marginTop: 15
     },
 });

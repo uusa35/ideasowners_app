@@ -61,7 +61,7 @@ class App extends Component {
 
                         <Spinner color="grey" style={styles.spinner}/>
                         :
-                        <PostIndex posts={this.props.posts}/>
+                        <PostIndex posts={this.props.posts} { ...this.props }/>
                     }
                 </Content>
                 <Footer>

@@ -2,8 +2,8 @@
  * Created by usamaahmed on 12/27/16.
  */
 import React , { Component , PropTypes } from 'react';
-import { Image } from 'react-native';
-import { Card, CardItem,  Text , Button , Thumbnail , Icon } from 'native-base';
+import { Image , LayoutAnimation } from 'react-native';
+import { View , Card, CardItem,  Text , Button , Thumbnail , Icon } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 import moment from 'moment';
 import styles from '../../assets/styles/styles';
@@ -15,6 +15,10 @@ export default class PostItem extends Component {
         super(props, content);
     }
 
+    componentWillUpdate() {
+        LayoutAnimation.spring();
+    }
+
     render() {
         return (
             <Card style={styles.postItemCard} key={this.props.post.id}>
@@ -24,10 +28,12 @@ export default class PostItem extends Component {
                 </CardItem>
                 <CardItem right onPress={ () => Actions.PostShow({ post : this.props.post , title : this.props.post.title }) }>
                     <Text style={{ textAlign: 'center', fontSize : 20, fontWeight : 'bold' }}>{this.props.post.title}</Text>
-                    <Button iconRight small transparent style={styles.btnDate}>
-                        <Icon name="md-calendar"/>
-                        <Text>{moment(this.props.post.updated_at, 'YYYY-MM-DD').format('LL')}</Text>
-                    </Button>
+                    <View style={styles.postItemControl}>
+                        <Button iconRight small transparent style={styles.btnDate}>
+                            <Icon name="md-calendar"/>
+                            <Text>{moment(this.props.post.updated_at, 'YYYY-MM-DD').format('LL')}</Text>
+                        </Button>
+                    </View>
                 </CardItem>
             </Card>
         );

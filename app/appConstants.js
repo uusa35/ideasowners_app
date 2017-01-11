@@ -15,8 +15,8 @@ export const initialState = {
 
 export const accept = 'application/json';
 export const content = 'application/json';
-//export const appRoute = 'http://ideas.app/';
-export const appRoute = 'http://api.ideasowners.net/';
+export const appRoute = 'http://ideas.app/';
+//export const appRoute = 'http://api.ideasowners.net/';
 export const apiRoute =  appRoute + 'api/';
 export const imagesRoute =  appRoute + 'storage/uploads/images/';
 export const mediumImageRoute = imagesRoute + 'medium/';
@@ -41,6 +41,7 @@ export const disableError = 'DISABLE_ERROR';
 
 export const postIndex = 'POST_INDEX';
 export const postShow = 'POST_SHOW';
+
 export const postStore = 'POST_STORE';
 export const checkConnection = 'CHECK_CONNECTION';
 export const goOnline = 'GO_ONLINE';
@@ -55,6 +56,7 @@ export const vars = {
         ideasowners: 'idesaowners',
         postShow: 'view post',
         postCreate : 'New Post',
+        postEdit : 'Edit post',
         more: 'More ...',
         webview : 'Our Site',
         location : 'Our Location',

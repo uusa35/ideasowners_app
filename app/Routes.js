@@ -16,6 +16,7 @@ import About from '../app/components/pages/About';
 import Login from '../app/components/pages/Login';
 import PostStore from '../app/components/post/PostStore'
 import PostCreate from '../app/components/post/PostCreate'
+import PostEdit from '../app/components/post/PostEdit'
 import PostImageShow from '../app/components/post/PostImageShow'
 import { vars } from '../app/appConstants'
 
@@ -41,6 +42,7 @@ class Routes extends Component {
                             key="PostShow"
                             component={PostShow}
                             title={vars.title.postShow}
+                            { ... this.props }
                         />
 
                         <Scene key="PostImageShow" direction="vertical">
@@ -97,6 +99,13 @@ class Routes extends Component {
                             key="PostCreate"
                             component={PostCreate}
                             title={vars.title.postCreate}
+                            { ...this.props }
+                        />
+
+                        <Scene
+                            key="PostEdit"
+                            component={PostEdit}
+                            title={vars.title.postEdit}
                             { ...this.props }
                         />
 

@@ -15,7 +15,7 @@ export default class PostIndex extends Component {
         return (
             <View>
                 { this.props.posts.map((post) => {
-                    return <PostItem post={post} key={post.id}/>
+                    return <PostItem post={post} key={post.id} { ... this.props} />
                 })}
             </View>
         );
