@@ -3,7 +3,6 @@ import React from 'react';
 import { Alert , AsyncStorage , NetInfo } from 'react-native'
 import { Actions } from 'react-native-router-flux';
 import { setAuthToken } from '../../helpers/auth';
-import { checkInternetConnection } from '../../helpers/connection'
 
 let propertiesActions = {
 
@@ -15,17 +14,11 @@ let propertiesActions = {
         }
     },
 
-    checkConnection: function () {
-        return (dispatch) => {
-            var isConnected = checkInternetConnection();
-            console.log(isConnected);
-            //if (isConnected) {
-            //    return dispatch(propertiesActions.goOnline(isConnected))
-            //} else {
-            //    return Alert.alert('Sys Message', 'there is no connection');
-            //}
-        }
-    },
+    //checkConnection: function () {
+    //    return (dispatch) => {
+    //        var isConnected = checkInternetConnection();
+    //    }
+    //},
 
 
     enableLoading: function () {

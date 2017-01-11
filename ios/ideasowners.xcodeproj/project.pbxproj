@@ -29,7 +29,6 @@
 		9517B8971E1BDD4E00C9A1E9 /* libRCTImage.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 00C302C01ABCB91800DB3ED1 /* libRCTImage.a */; };
 		95940A281E14217F00816FD9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95940A261E14217F00816FD9 /* Ionicons.ttf */; };
 		95940A2A1E14223A00816FD9 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95940A261E14217F00816FD9 /* Ionicons.ttf */; };
-		B8561A7A72F34A64B4BC7669 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C9F57B3447497CB66E35DE /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -217,7 +216,6 @@
 		9517B8931E1BC90C00C9A1E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9517B8941E1BC90C00C9A1E9 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
 		95940A261E14217F00816FD9 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
-		E5C9F57B3447497CB66E35DE /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,7 +243,6 @@
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				B8561A7A72F34A64B4BC7669 /* libAirMaps.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

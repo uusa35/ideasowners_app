@@ -11,7 +11,7 @@ import AppFooter from '../../components/partials/AppFooter';
 import theme from '../../../Themes/theme';
 import { webViewLink , appPhoneMeessage } from '../../appConstants';
 import { vars , appTokenKey } from '../../appConstants';
-import { getAuthToken } from '../../AppStorage';
+import { getAuthToken } from '../../helpers/auth';
 
 class More extends Component {
 
@@ -19,10 +19,6 @@ class More extends Component {
         super(props);
         this.state = ({isLogged: false , token : null });
     }
-
-    //componentWillUpdate() {
-    //    LayoutAnimation.spring();
-    //}
 
     componentWillMount() {
         LayoutAnimation.spring();
