@@ -9,23 +9,22 @@ import { Actions } from 'react-native-router-flux';
 import styles from '../../assets/styles/styles';
 import AppFooter from '../../components/partials/AppFooter';
 import theme from '../../../Themes/theme';
-import { webViewLink , appPhoneMeessage } from '../../appConstants';
-import { vars , appTokenKey } from '../../appConstants';
+import { webViewLink , appPhoneMeessage , vars , appTokenKey} from '../../appConstants';
 import { getAuthToken } from '../../helpers/auth';
 
 class More extends Component {
 
     constructor(props) {
         super(props);
-        this.state = ({isLogged: false , token : null });
+        this.state = ({isLogged: false, token: null});
     }
 
     componentWillMount() {
         LayoutAnimation.spring();
         try {
-            getAuthToken().then( (e) => {
+            getAuthToken().then((e) => {
                 if (e !== null) {
-                    this.setState({isLogged: true , token : e});
+                    this.setState({isLogged: true, token: e});
                     this.props.propertiesActions.login(e);
                 }
             });
@@ -36,22 +35,12 @@ class More extends Component {
     }
 
 
-    goToSite() {
-        Linking.canOpenURL(webViewLink).then(supported => {
+    goToSite(link) {
+        Linking.canOpenURL(link).then(supported => {
             if (supported) {
-                Linking.openURL(webViewLink);
+                Linking.openURL(link);
             } else {
-                console.log('Don\'t know how to open URI: ' + webViewLink);
-            }
-        });
-    }
-
-    goToBlog() {
-        Linking.canOpenURL(vars.blogLink).then(supported => {
-            if (supported) {
-                Linking.openURL(vars.blogLink);
-            } else {
-                console.log('Don\'t know how to open URI: ' + vars.blogLink);
+                console.log('Don\'t know how to open URI: ' + link);
             }
         });
     }
@@ -84,7 +73,7 @@ class More extends Component {
                         </Button>
                         :
                         <Button transparent onPress={ () => { Actions.Login() }}>
-                        <Title>Login</Title>
+                            <Title>Login</Title>
                         </Button>
                     }
                 </Header>
@@ -93,84 +82,60 @@ class More extends Component {
                         <ListItem itemDivider style={styles.listItemMore}>
                             <Text>About</Text>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore} transparent onPress={() => { Actions.About() }}>
                             <Icon name="ios-information-circle" style={styles.iconMore}/>
-                            <Button transparent onPress={() => { Actions.About() }}>
                                 <Text style={styles.textMore}>About</Text>
-                            </Button>
                         </ListItem>
 
                         <ListItem itemDivider style={styles.listeItemMore}>
                             <Text>GET IN TOUCH</Text>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore} onPress={ () => { this.goToSite(webViewLink) }}>
                             <Icon name="ios-globe" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => { this.goToSite() }}>
                                 <Text style={styles.textMore}>Website</Text>
-                            </Button>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore}
+                                  onPress={() => { Alert.alert( 'Our Phone', vars.phone)}}>
                             <Icon name="md-call" style={styles.iconMore}/>
-                            <Button transparent onPress={() => { Alert.alert( 'Our Phone', vars.phone)}}>
                                 <Text style={styles.textMore}>Phone</Text>
-                            </Button>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore}
+                                  onPress={ () => { Actions.Location({ name : 'Location'})} }>
                             <Icon name="ios-map-outline" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => { Actions.Location({ name : 'Location'})} }>
                                 <Text style={styles.textMore}>Location</Text>
-                            </Button>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore}
+                                  onPress={ () => {Alert.alert( 'Our Email', vars.email)}}>
                             <Icon name="ios-mail" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => {
-                            Alert.alert( 'Our Email', vars.email)}
-                            }>
                                 <Text style={styles.textMore}>Email</Text>
-                            </Button>
                         </ListItem>
-
-
                         <ListItem itemDivider style={styles.listeItemMore}>
                             <Text>SOCIAL MEDIA</Text>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore} onPress={ () => { this.goToSite(vars.twitter)}}>
                             <Icon name="logo-twitter" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => {
-                            Alert.alert( 'Twitter Account', vars.twitter)}
-                            }>
-                                <Text style={styles.textMore}>Twitter</Text>
-                            </Button>
+                            <Text style={styles.textMore}>Twitter</Text>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore} onPress={ () => {this.goToSite(vars.facebook)}}>
                             <Icon name="logo-facebook" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => {
-                            Alert.alert( 'Facebook Account', vars.facebook)}
-                            }>
-                                <Text style={styles.textMore}>Facebook</Text>
-                            </Button>
+                            <Text style={styles.textMore}>Facebook</Text>
                         </ListItem>
-                        <ListItem iconLeft style={styles.cellMore}>
+                        <ListItem iconLeft style={styles.cellMore} onPress={ () => { this.goToSite(vars.blogLink) }}>
                             <Icon name="logo-wordpress" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => { this.goToBlog() }}>
-                                <Text style={styles.textMore}>Blog</Text>
-                            </Button>
+                            <Text style={styles.textMore}>Blog</Text>
                         </ListItem>
                         { this.state.isLogged ?
-                        <ListItem iconLeft style={styles.cellMore}>
-                            <Icon name="ios-create-outline" style={styles.iconMore}/>
-                            <Button transparent onPress={ () => Actions.PostCreate({ token : this.props.properties.token }) }>
+                            <ListItem iconLeft style={styles.cellMore}
+                                      onPress={ () => Actions.PostCreate({ token : this.props.properties.token }) }>
+                                <Icon name="ios-create-outline" style={styles.iconMore}/>
+
                                 <Text style={styles.textMore}>{vars.title.postCreate}</Text>
-                            </Button>
-                        </ListItem>
+                            </ListItem>
                             :
-                            <ListItem iconLeft style={styles.cellMore}>
+                            <ListItem iconLeft style={styles.cellMore} onPress={ () => {Actions.Login()}}>
                                 <Icon name="md-person" style={styles.iconMore}/>
-                                <Button transparent onPress={ () => {
-                                Actions.Login()
-                                }}>
-                                    <Text style={styles.textMore}>Login</Text>
-                                </Button>
+
+                                <Text style={styles.textMore}>Login</Text>
                             </ListItem>
                         }
                     </List>
@@ -184,7 +149,7 @@ class More extends Component {
 }
 
 More.ProtoTypes = {
-    title : PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
 }
 
 function mapStateToProps(state) {

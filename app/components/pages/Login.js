@@ -65,16 +65,14 @@ export default class Login extends Component {
                                            onChangeText={ (password) => this.setState({ password })}/>
                                 </InputGroup>
                             </ListItem>
-                            <ListItem>
-                                <Button block primary
-                                        style={{ flex : 1, alignSelf: 'center', marginTop: 20, marginBottom: 20 }}
-                                        onPress={ () => this.login()}>
-                                    <Icon name='ios-contact'/>
-                                    Login
-                                </Button>
-                            </ListItem>
                         </List>
                     }
+                    <Button warning block iconLeft
+                            style={{ margin : 20 , borderWidth : 2, borderColor : 'lightgrey' }}
+                            onPress={ () => this.login()}>
+                        <Icon name='ios-contact'/>
+                        Login
+                    </Button>
                 </Content>
                 <Footer>
                     <AppFooter name={this.props.name}/>

@@ -36,7 +36,7 @@ export default class AppFooter extends Component {
                                     (this.props.name === 'More' ||
                                     this.props.name === 'Location' ||
                                     this.props.name === 'PostCreate' ||
-                                    this.props.name === 'login' ||
+                                    this.props.name === 'Login' ||
                                     this.props.name === 'PostCreate')
                                     ? true : false
                                     )}

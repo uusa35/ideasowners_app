@@ -56,7 +56,7 @@ export default class PostCreate extends Component {
             angle: 0,
             allowsEditing: false
         };
-        ImagePicker.showImagePicker(options, (response) => {
+        ImagePicker.launchImageLibrary(options, (response) => {
 
             if (response.didCancel) {
                 console.log('User cancelled image picker');
@@ -87,8 +87,33 @@ export default class PostCreate extends Component {
                 });
             }
         });
-    }
 
+        //// Launch Camera:
+        //ImagePicker.launchCamera(options, (response)  => {
+        //    if (response.didCancel) {
+        //        console.log('User cancelled image picker');
+        //    }
+        //    else if (response.error) {
+        //        console.log('ImagePicker Error: ', response.error);
+        //    }
+        //    else if (response.customButton) {
+        //        console.log('User tapped custom button: ', response.customButton);
+        //    }
+        //    else {
+        //
+        //        const imageSource = {uri: 'data:image/jpeg;base64,' + response.data, isStatic: true};
+        //
+        //        this.setState({
+        //            imageSource: imageSource,
+        //            image: {
+        //                imageFilePath: response.uri,
+        //                imageFileName: response.fileName,
+        //                imageFileType: response.uri.substring(response.uri.lastIndexOf('.') + 1)
+        //            }
+        //        });
+        //    }
+        //});
+    }
     _postStore() {
         if (isRequired(this.state.title) && isRequired(this.state.body) && isRequired(this.state.image.imageFileName)) {
             //this.setState({ isLoading : true });

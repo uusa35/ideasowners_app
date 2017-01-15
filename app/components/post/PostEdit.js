@@ -66,7 +66,7 @@ export default class PostEdit extends Component {
             angle: 0,
             allowsEditing: false
         };
-        ImagePicker.showImagePicker(options, (response) => {
+        ImagePicker.launchImageLibrary(options, (response) => {
 
             if (response.didCancel) {
                 console.log('User cancelled image picker');

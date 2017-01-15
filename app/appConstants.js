@@ -5,10 +5,10 @@ export const initialState = {
     properties: {
         isLoading: false,
         isError: false,
-        token : null,
-        isLogged : false,
-        message : '',
-        isConnected : true
+        token: null,
+        isLogged: false,
+        message: '',
+        isConnected: true
     },
     posts: []
 }
@@ -17,8 +17,8 @@ export const accept = 'application/json';
 export const content = 'application/json';
 //export const appRoute = 'http://ideas.app/';
 export const appRoute = 'http://api.ideasowners.net/';
-export const apiRoute =  appRoute + 'api/';
-export const imagesRoute =  appRoute + 'storage/uploads/images/';
+export const apiRoute = appRoute + 'api/';
+export const imagesRoute = appRoute + 'storage/uploads/images/';
 export const mediumImageRoute = imagesRoute + 'medium/';
 export const largeImageRoute = imagesRoute + 'large/';
 export const webViewLink = 'http://ideasowners.net';
@@ -55,27 +55,27 @@ export const vars = {
         portfolio: 'portfolio',
         ideasowners: 'idesaowners',
         postShow: 'view post',
-        postCreate : 'New Post',
-        postEdit : 'Edit post',
+        postCreate: 'New Post',
+        postEdit: 'Edit post',
         more: 'More ...',
-        webview : 'Our Site',
-        location : 'Our Location',
-        about : 'About',
-        postStore : 'Save a Post',
-        login : 'Login',
+        webview: 'Our Site',
+        location: 'Our Location',
+        about: 'About',
+        postStore: 'Save a Post',
+        login: 'Login',
 
     },
-    email : 'info@ideasowners.net',
-    phone : '98824010',
-    twitter : '@ideasowners',
-    facebook : 'ideasowners',
-    aboutus : "IdeasOwners Established on 2013 as a pioneering firm in the Online field.We offer you a wide range of Online services and presenting inventive solutions. It’s IdeasOwners pleasure to addresses all your Business needs and deliver the Best Quality for You and Your Business.",
-    blogLink : 'http://www.ideasowners.com',
-    graphicDesignURL : 'http://ideasowners.net/index.php/ads/',
-    mobileApsURL : 'https://itunes.apple.com/sa/developer/ebrahim-alnassar/id590438830',
-    websitesURL : 'http://ideasowners.net/index.php/websites/',
-    servicesURL : 'http://ideasowners.net/index.php/our-services/',
-    longitude : '47.984519',
-    latitude : '29.377072'
+    email: 'info@ideasowners.net',
+    phone: '98824010',
+    aboutus: "IdeasOwners Established on 2013 as a pioneering firm in the Online field.We offer you a wide range of Online services and presenting inventive solutions. It’s IdeasOwners pleasure to addresses all your Business needs and deliver the Best Quality for You and Your Business.",
 
+    graphicDesignURL: 'http://ideasowners.net/index.php/ads/',
+    mobileApsURL: 'https://itunes.apple.com/sa/developer/ebrahim-alnassar/id590438830',
+    websitesURL: 'http://ideasowners.net/index.php/websites/',
+    servicesURL: 'http://ideasowners.net/index.php/our-services/',
+    blogLink: 'http://www.ideasowners.com',
+    longitude: '47.984519',
+    latitude: '29.377072',
+    twitter: 'http://www.twitter.com/ideasowners',
+    facebook: 'http://www.facebook.com/ideasowners',
 }

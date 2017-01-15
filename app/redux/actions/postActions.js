@@ -44,7 +44,7 @@ let postActions = {
             getAuthToken().then(token => {
                 let imageUpload = {
                     uri: post.image.imageFilePath,
-                    type: post.image.imageFileType,
+                    type: (Platform.OS === 'ios' ) ? post.image.imageFileType : 'image/jpeg',
                     name: post.image.imageFileName
                 }
                 var body = new FormData();
@@ -88,9 +88,10 @@ let postActions = {
     postUpdate: function (post) {
         return (dispatch) => {
             getAuthToken().then(token => {
+                console.log(uri.parse(post.image.imageFilePath));
                 let imageUpload = {
-                    uri: post.image.imageFilePath,
-                    type: post.image.imageFileType,
+                    uri: (Platform.OS === 'ios') ? post.image.imageFilePath : uri.parse(post.image.imageFilePath),
+                    type: (Platform.OS === 'ios' ) ? post.image.imageFileType : 'image/jpeg',
                     name: post.image.imageFileName
                 }
                 var body = new FormData();
@@ -111,14 +112,22 @@ let postActions = {
                     }
 
                     if (xhr.status === 200) {
-                        var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
+                        if (Platform.OS) {
+                            var json = JSON.parse(xhr.responseText);
+                            Alert.alert('System Message : Success', json.error);
+                        } else {
+                            Alert.alert('System Message : Success', xhr.responseText);
+                        }
                         dispatch(postActions.postFetch());
                         Actions.Home();
                     } else {
                         console.log(xhr.responseText);
-                        var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.error);
+                        if (Platform.OS) {
+                            var json = JSON.parse(xhr.responseText);
+                            Alert.alert('System Message : Error', json.error);
+                        } else {
+                            Alert.alert('System Message : Error', xhr.responseText);
+                        }
                     }
                 };
 

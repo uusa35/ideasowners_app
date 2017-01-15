@@ -215,6 +215,7 @@
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		9517B8931E1BC90C00C9A1E9 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		9517B8941E1BC90C00C9A1E9 /* Splash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Splash@2x.png"; sourceTree = "<group>"; };
+		954C61F51E2B4DD3006EAFE3 /* ideasowners.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = ideasowners.entitlements; path = ideasowners/ideasowners.entitlements; sourceTree = "<group>"; };
 		95940A261E14217F00816FD9 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ionicons.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -329,6 +330,7 @@
 		13B07FAE1A68108700A75B9A /* ideasowners */ = {
 			isa = PBXGroup;
 			children = (
+				954C61F51E2B4DD3006EAFE3 /* ideasowners.entitlements */,
 				95940A041E14216C00816FD9 /* Fonts */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -498,6 +500,11 @@
 					};
 					13B07F861A680F5B00A75B9A = {
 						DevelopmentTeam = HPM3XD35FV;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+						};
 					};
 				};
 			};

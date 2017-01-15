@@ -146,9 +146,9 @@ let styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     postShowImageModal: {
-        height: height - 50,
+        height : (Platform.OS === 'ios' ) ? height - 50 : height ,
+        resizeMode : (Platform.OS === 'ios' ) ? 'contain' : 'cover' ,
         width: width,
-        resizeMode: 'contain'
     },
     postShowBtnModal: {
         alignSelf: 'flex-end',
