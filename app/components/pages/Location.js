@@ -9,6 +9,7 @@ import GoogleStaticMap from 'react-native-google-static-map'
 import AppFooter from '../../components/partials/AppFooter'
 import styles from '../../assets/styles/styles';
 import { vars } from '../../appConstants';
+import theme from '../../../Themes/theme';
 
 let { height , width } = Dimensions.get('window');
 export default class Location extends Component {
@@ -18,7 +19,7 @@ export default class Location extends Component {
 
     render() {
         return (
-            <Container>
+            <Container theme={theme}>
                 <Header>
                     <Button transparent onPress={ () => Actions.More() }>
                         <Icon name="ios-arrow-back"/>

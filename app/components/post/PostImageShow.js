@@ -15,7 +15,7 @@ export default class PostImageShow extends Component {
     render() {
         return (
             <View style={styles.PostImageShowModalcontainer}>
-                <Button transparent block onPress={() => Actions.pop()} style={styles.postShowBtnModal}>
+                <Button transparent block onPress={() => Actions.pop() } style={styles.postShowBtnModal}>
                     <Icon name="md-close-circle" style={{ color : 'lightgrey'}}/>
                 </Button>
                 <PhotoView

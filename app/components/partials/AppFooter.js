@@ -15,10 +15,10 @@ export default class AppFooter extends Component {
 
     render() {
         return (
-            <Footer>
-                <FooterTab theme={theme}>
-                    <Button onPress={ () => Actions.Home() } active={(this.props.name === 'Home' ? true : false)}>
-                        <Text styles={{ color : '#900'}}>{ _.camelCase(vars.title.news) }</Text>
+            <Footer theme={theme}>
+                <FooterTab>
+                    <Button btnTextSize onPress={ () => Actions.Home() } active={(this.props.name === 'Home' ? true : false)}>
+                        { _.camelCase(vars.title.news) }
                         <Icon name="md-paper" md="" size={30}/>
                     </Button>
                     <Button theme={theme} onPress={ () => Actions.Services() }

@@ -53,9 +53,6 @@ class Routes extends Component {
                                    title={vars.title.postShow}/>
                         </Scene>
 
-
-
-
                         <Scene
                             key="Services"
                             component={Services}

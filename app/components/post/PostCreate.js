@@ -3,7 +3,7 @@
  */
 import React , { Component } from 'react';
 import { Image , Platform ,NativeModules , PropTypes , Alert} from 'react-native';
-import { Container , View, Content , Header , Footer , Text, H3, Button , List , ListItem , Title , InputGroup , Input , Spinner , Thumbnail , Icon  } from 'native-base';
+import { Container , View, Content , Header , Footer , Picker, Text, H3, Button , List , ListItem , Title , InputGroup , Input , Spinner , Thumbnail , Icon  } from 'native-base';
 import _ from 'lodash';
 import theme from '../../../Themes/theme';
 import styles from '../../assets/styles/styles';
@@ -13,6 +13,7 @@ import { apiRoute } from '../../appConstants';
 import ImagePicker from 'react-native-image-picker';
 import { isRequired } from '../../helpers/validate';
 
+const Item = Picker.Item;
 export default class PostCreate extends Component {
 
     constructor(props, content) {
@@ -22,18 +23,25 @@ export default class PostCreate extends Component {
             token: this.props.token,
             title: '',
             body: '',
+            notification: '0',
             image: {
                 imageFileName: '',
                 imageFilePath: null,
                 imageFileType: '',
             },
-            isLoading : false,
+            isLoading: false,
         });
     }
 
     componentDidMount() {
         this.props.propertiesActions.disableLoading();
-        this.setState({ isLoading : this.props.properties.isError})
+        this.setState({isLoading: this.props.properties.isError})
+    }
+
+    onValueChange(value:string) {
+        this.setState({
+            notification: value,
+        });
     }
 
 
@@ -114,9 +122,9 @@ export default class PostCreate extends Component {
         //    }
         //});
     }
+
     _postStore() {
         if (isRequired(this.state.title) && isRequired(this.state.body) && isRequired(this.state.image.imageFileName)) {
-            //this.setState({ isLoading : true });
             this.props.postActions.postStore(this.state);
         } else {
             this.props.propertiesActions.alertMessage(true, 'All fields are required');
@@ -169,6 +177,17 @@ export default class PostCreate extends Component {
                                            value={this.state.body}
                                     />
                                 </InputGroup>
+                            </ListItem>
+                            <ListItem iconLeft>
+                                <Icon name="ios-notifications-outline" style={{ color: '#b38f00' }}/>
+                                <Text>Send Notification : { (this.state.notification == 1) ? 'Yes' : "No" }</Text>
+                                <Picker color="red"
+                                        iosHeader="Select one"
+                                        selectedValue={this.state.notification}
+                                        onValueChange={this.onValueChange.bind(this)}>
+                                    <Item label="No" value="0"/>
+                                    <Item label="Yes" value="1"/>
+                                </Picker>
                             </ListItem>
                             <ListItem style={{ marginTop : 20}}>
                                 <Button block primary onPress={() => this._postStore()}>

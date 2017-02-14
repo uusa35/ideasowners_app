@@ -45,8 +45,8 @@ export default {
         return this.inverseTextColor;
     },
     get btnTextSize () {
-        return (Platform.OS==='ios') ? this.fontSizeBase* 1.1 :
-        this.fontSizeBase-1;
+        return (Platform.OS==='ios') ? this.fontSizeBase - 2 :
+        this.fontSizeBase-5;
     },
     get btnTextSizeLarge () {
         return this.fontSizeBase* 1.5;
@@ -104,32 +104,32 @@ export default {
 
     // Footer
     footerHeight: 55,
-    footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
+    footerDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#F8F8F8',
 
 
     //FooterTab
-    tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
+    tabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#6b6b6b',
     //tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
-    tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#cc9900' : '#fff',
+    tabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#cc9900' : '#cc9900',
     //tabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : undefined,
-    tabActiveBgColor: (Platform.OS=='ios') ? '#e6e6e6' : undefined,
+    tabActiveBgColor: (Platform.OS=='ios') ? '#e6e6e6' : '#e6e6e6',
 
     //Tab
-    tabDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
-    topTabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#b3c7f9',
-    topTabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
-    topTabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : undefined,
-    topTabBarBorderColor: (Platform.OS === 'ios' ) ? '#007aff' : '#fff',
+    tabDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#F8F8F8',
+    topTabBarTextColor: (Platform.OS === 'ios' ) ? '#6b6b6b' : '#6b6b6b',
+    topTabBarActiveTextColor: (Platform.OS === 'ios' ) ? '#007aff' : '#007aff',
+    topTabActiveBgColor: (Platform.OS=='ios') ? '#cde1f9' : '#cde1f9',
+    topTabBarBorderColor: (Platform.OS === 'ios' ) ? '#007aff' : '#007aff',
 
 
     // Header
     iosToolbarBtnColor: '#007aff',
-    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#4179F7',
+    toolbarDefaultBg: (Platform.OS === 'ios' ) ? '#F8F8F8' : '#F8F8F8',
     toolbarHeight: (Platform.OS === 'ios' ) ? 64 : 56,
     toolbarIconSize: (Platform.OS === 'ios' ) ? 20 : 22,
     toolbarInputColor: '#CECDD2',
     toolbarInverseBg: '#222',
-    toolbarTextColor: (Platform.OS==='ios') ? '#cc9900' : '#fff',
+    toolbarTextColor: (Platform.OS==='ios') ? '#cc9900' : '#cc9900',
     get statusBarColor() {
         return Color(this.toolbarDefaultBg).darken(0.2).hexString();
     },

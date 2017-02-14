@@ -28,7 +28,7 @@ let styles = StyleSheet.create({
         fontSize: 30,
         fontWeight: 'bold'
     },
-    postItemControl : {
+    postItemControl: {
         flex: 1,
         flexDirection: 'row',
         paddingRight: 25,
@@ -146,9 +146,9 @@ let styles = StyleSheet.create({
         backgroundColor: 'black',
     },
     postShowImageModal: {
-        height : (Platform.OS === 'ios' ) ? height - 50 : height ,
-        resizeMode : (Platform.OS === 'ios' ) ? 'contain' : 'cover' ,
-        width: width,
+        marginTop: (Platform.OS === 'ios' ) ? null : 70,
+        height: (Platform.OS === 'ios' ) ? height - 50 : height,
+        width: width
     },
     postShowBtnModal: {
         alignSelf: 'flex-end',

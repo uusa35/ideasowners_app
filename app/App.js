@@ -26,21 +26,20 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this.props.postActions.postFetch();
         try {
             getAuthToken().then((token) => {
                 NetInfo.isConnected.fetch().catch(e => {
                     console.log(e);
-                    Alert.alert('Sys Message', 'there is no connection');
                 });
 
                 NetInfo.addEventListener('change', (e) => {
                     if (e) {
-                        this.props.postActions.postFetch();
                         if (token != null) {
                             this.props.propertiesActions.login(token);
                         }
                     } else {
-                        Alert.alert('Sys Message', 'there is no connection');
+                        console.log('there is no token !!');
                     }
                 });
 

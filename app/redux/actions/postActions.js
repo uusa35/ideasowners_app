@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert } from 'react-native';
+import { Alert , Platform } from 'react-native';
 import * as cons from '../../appConstants';
 import propertiesActions from '../../redux/actions/propertiesActions';
 import { getAuthToken } from '../../helpers/auth';
@@ -40,6 +40,7 @@ let postActions = {
     },
 
     postStore: function (post) {
+        console.log(post);
         return (dispatch) => {
             getAuthToken().then(token => {
                 let imageUpload = {
@@ -51,6 +52,12 @@ let postActions = {
                 body.append('image', imageUpload);
                 body.append('title', post.title);
                 body.append('body', post.body);
+                if (post.notification === "1") {
+                    body.append('notification', post.notification);
+                }
+
+
+                console.log(post.notification);
 
                 var xhr = new XMLHttpRequest();
                 xhr.withCredentials = true;
@@ -64,13 +71,12 @@ let postActions = {
 
                     if (xhr.status === 200) {
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
-                        dispatch(postActions.postFetch());
+                        Alert.alert('System Message : Success', json.message);
                         Actions.Home();
                     } else {
                         console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.error);
+                        Alert.alert('System Message : Error', json.message);
                     }
                 };
 
@@ -79,7 +85,6 @@ let postActions = {
                 xhr.setRequestHeader("accept", cons.accept);
                 xhr.setRequestHeader("cache-control", "no-cache");
                 xhr.setRequestHeader("form", "multipart/form-data");
-
                 xhr.send(body);
             });
         }
@@ -88,14 +93,20 @@ let postActions = {
     postUpdate: function (post) {
         return (dispatch) => {
             getAuthToken().then(token => {
-                console.log(uri.parse(post.image.imageFilePath));
                 let imageUpload = {
-                    uri: (Platform.OS === 'ios') ? post.image.imageFilePath : uri.parse(post.image.imageFilePath),
+                    uri: (Platform.OS === 'ios') ? post.image.imageFilePath : post.image.imageFilePath.toString(),
                     type: (Platform.OS === 'ios' ) ? post.image.imageFileType : 'image/jpeg',
                     name: post.image.imageFileName
                 }
                 var body = new FormData();
-                body.append('image', imageUpload);
+                if (Platform.ios === 'ios') {
+                    body.append('image', imageUpload);
+                }
+                else {
+                    if (!post.image.imageFilePath.indexOf('http') >= 0) {
+                        body.append('image', imageUpload);
+                    }
+                }
                 body.append('title', post.title);
                 body.append('body', post.body);
                 body.append('id', post.id);
@@ -112,22 +123,13 @@ let postActions = {
                     }
 
                     if (xhr.status === 200) {
-                        if (Platform.OS) {
-                            var json = JSON.parse(xhr.responseText);
-                            Alert.alert('System Message : Success', json.error);
-                        } else {
-                            Alert.alert('System Message : Success', xhr.responseText);
-                        }
-                        dispatch(postActions.postFetch());
+                        var json = JSON.parse(xhr.responseText);
+                        Alert.alert('System Message : Success', json.message);
                         Actions.Home();
                     } else {
                         console.log(xhr.responseText);
-                        if (Platform.OS) {
-                            var json = JSON.parse(xhr.responseText);
-                            Alert.alert('System Message : Error', json.error);
-                        } else {
-                            Alert.alert('System Message : Error', xhr.responseText);
-                        }
+                        var json = JSON.parse(xhr.responseText);
+                        Alert.alert('System Message : Error', json.message);
                     }
                 };
 
@@ -136,7 +138,6 @@ let postActions = {
                 xhr.setRequestHeader("accept", cons.accept);
                 xhr.setRequestHeader("cache-control", "no-cache");
                 xhr.setRequestHeader("form", "multipart/form-data");
-
                 xhr.send(body);
             });
         }
@@ -161,13 +162,11 @@ let postActions = {
 
                     if (xhr.status === 200) {
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.message);
-                        dispatch(postActions.postFetch());
+                        Alert.alert('System Message : Success', json.message);
                         Actions.Home();
                     } else {
-                        console.log(xhr.responseText);
                         var json = JSON.parse(xhr.responseText);
-                        Alert.alert('System Message', json.error);
+                        Alert.alert('System Message : Error', json.message);
                     }
                 };
 
@@ -175,12 +174,10 @@ let postActions = {
                 xhr.setRequestHeader("authorization", "Bearer " + token);
                 xhr.setRequestHeader("accept", cons.accept);
                 xhr.setRequestHeader("cache-control", "no-cache");
-                //xhr.setRequestHeader("form", "multipart/form-data");
-
                 xhr.send(body);
             });
         }
-    }
+    },
 }
 
 export default postActions;

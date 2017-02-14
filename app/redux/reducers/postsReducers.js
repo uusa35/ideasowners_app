@@ -7,7 +7,7 @@ let postsReducers = function (posts = [], action) {
             return action.posts;
 
         case cons.postShow :
-            return action.post
+            return action.post;
 
         default :
             return posts;
